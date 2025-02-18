@@ -43,6 +43,41 @@ const ListDetails = () => {
   const [isAddingCollaborator, setIsAddingCollaborator] = useState(false);
 
   useEffect(() => {
+    const channel = supabase
+      .channel(`realtime-list-items-${id}`)
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'list_items' },
+        (payload) => {
+          console.log("Обновление списка:", payload.eventType, payload);
+  
+          setItems((prevItems) => {
+            if (payload.eventType === 'INSERT') {
+              return [...prevItems, payload.new as ListItem];
+            }
+            if (payload.eventType === 'UPDATE') {
+              return prevItems.map((item) =>
+                item.id === (payload.new as ListItem).id ? (payload.new as ListItem) : item
+              );
+            }
+            if (payload.eventType === 'DELETE') {
+              return prevItems.filter((item) => item.id !== (payload.old as ListItem).id);
+            }
+            return prevItems;
+          });
+        }
+      )
+      .subscribe();
+  
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+  
+  
+  
+  
+  useEffect(() => {
     if (!user) {
       // navigate("/"); // Закомментировал, чтобы не было редиректа на главную страницу
     } else {
