@@ -76,7 +76,7 @@ const Auth = () => {
       >
         <Card className="p-6 glass-card">
           <h1 className="text-2xl font-bold text-center mb-6">
-            {isSignUp ? "Create an Account" : "Welcome Back"}
+            {isSignUp ? "Створити акаунт" : "З поверненням"}
           </h1>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
@@ -109,7 +109,7 @@ const Auth = () => {
               disabled={isLoading}
             >
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isSignUp ? "Sign Up" : "Sign In"}
+              {isSignUp ? "Зареєструватися" : "Увійти"}
             </Button>
           </form>
           <div className="relative my-6">
@@ -118,7 +118,7 @@ const Auth = () => {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">
-                Or continue with
+                Або продовжити з
               </span>
             </div>
           </div>
@@ -145,16 +145,16 @@ const Auth = () => {
                 fill="#EA4335"
               />
             </svg>
-            Continue with Google
+            Увійти через Google
           </Button>
           <p className="mt-4 text-center text-sm text-muted-foreground">
-            {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
+            {isSignUp ? "Вже маєте акаунт?" : "Немає облікового запису?"}{" "}
             <Button
               variant="link"
               className="px-0"
               onClick={() => setIsSignUp(!isSignUp)}
             >
-              {isSignUp ? "Sign In" : "Sign Up"}
+              {isSignUp ? "Увійти" : "Зареєструватися"}
             </Button>
           </p>
         </Card>
