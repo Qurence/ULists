@@ -28,6 +28,9 @@ const Auth = () => {
         const { error } = await supabase.auth.signUp({
           email,
           password,
+          options: {
+            emailRedirectTo: 'https://qurence.github.io/ULists/', // Указываем, куда перенаправить после подтверждения email
+          },
         });
         if (error) throw error;
         toast({
