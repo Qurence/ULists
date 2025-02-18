@@ -41,7 +41,7 @@ const Auth = () => {
         });
         if (error) throw error;
         
-        navigate("/ULists/dashboard");
+        navigate("/dashboard");
       }
     } catch (error: any) {
       toast({
