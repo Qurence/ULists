@@ -25,7 +25,7 @@ const Index = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold tracking-tight mb-4"><span style={{ color: "#fe5f00" }}>U</span>List</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-4"><span style={{ color: "#38B2AC" }}>U</span>List</h1>
           <p className="text-lg text-muted-foreground">
             Створюйте списки покупок разом із друзями та родиною
           </p>
