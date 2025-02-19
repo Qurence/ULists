@@ -174,7 +174,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gradient-to-b from-background to-accent/20">
       <div className="container max-w-4xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">ULists</h1>
+          <h1 className="text-3xl font-bold"><span style={{ color: "#38B2AC" }}>U</span>Lists</h1>
 
           <Button variant="outline" onClick={signOut} className="button-bounce">
             <LogOut className="h-4 w-4 mr-2" />
